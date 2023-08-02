@@ -50,7 +50,6 @@ function checkAnswer(){
 }
 
 function endGame(){
-    score = 0;
     text.textContent = 'You fail! Click the button to start!!';
     btnStart.textContent = 'Star!';
 }
