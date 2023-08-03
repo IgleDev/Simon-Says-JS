@@ -1,11 +1,11 @@
+let score = -1;
+let scores = [];
 let text = document.getElementById('text');
 let check = document.getElementById('checkAction')
 let btnStart = document.getElementById('start');
 let btnNo = document.getElementById('checkNo');
 let btnCheck = document.getElementById('check');
 let maxScore = document.getElementById('max');
-let score = -1;
-let scores = [];
 
 let actions = ['Simon says Dance!',
 'Javier says baila!',
@@ -60,11 +60,12 @@ function checkAnswer(){
 
 function endGame(){
     scores.push(score);
+    localStorage.setItem('finalScore', Math.max(...scores));
     score = -1;
     btnStart.style.display = 'flex';
     text.textContent = 'You failed! Click the button to start!!';
     btnStart.textContent = 'Start!';
-    maxScore.textContent = Math.max(...scores)
+    maxScore.textContent = localStorage.getItem('finalScore');
 }
 
 btnStart.addEventListener('click', start);
